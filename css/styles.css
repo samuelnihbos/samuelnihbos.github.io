@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: 'OverpassMono Nerd Font';
+    src: url('css/fonts/OverpassMonoNerdFontComplete-Regular.woff2') format('woff2'),
+        url('css/fonts/OverpassMonoNerdFontComplete-Regular.woff') format('woff'),
+        url('css/fonts/OverpassMonoNerdFontComplete-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
 	background-color:  #181f21;
 }
@@ -11,13 +21,13 @@ h1 {
 }
 
 p {
-	font-family: Fira Mono;
+	font-family: OverpassMono Nerd Font;
 	font-size: 20px;
 	color: #b3b9b8;
 }
 
 p2 {
-	font-family: verdana;
+	font-family: OverpassMono Nerd Font;
 	font-size: 20px;
 	color: #b3b9b8;
 }
