@@ -33,14 +33,19 @@ p2 {
 }
 
 .footer {
-  position: fixed;
-  /*left: 0;
-  bottom: 0;*/
-  width: 100%;
-  background-color: #181f21;
-  color: #b3b9b8;
-  /*text-align: center;*/
-  float: left;
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height: 90px;
+  background-color: #D0DAEE;
+}
+
+.footer-text-left {
+  font-size:25px;
+  padding-left:40px;
+  float:left;
+  word-spacing:20px;
 }
 
 a{
