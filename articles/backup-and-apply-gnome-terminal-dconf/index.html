@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="/home/samuel/nc/github/website/css/styles.css">
+    <link rel="icon" type="image/png" href="https://github.com/samuelnihbos.png">
+
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <title>How to backup and restore gnome-terminal settings with dconf</title>
+</head>
+<h1>How to backup and restore gnome-terminal settings with dconf</h1>
+<p class="author">20.03.2022 - SamuelNihBos</p>
+
+<p>Dconf is an utility for reading and writing individual values or entire directories from and to a dconf database. I don’t really know what dconf does, but i use it to backup my gnome-terminal settings. Here i will teach you how to backup and apply your .dconf file for gnome-terminal.
+
+What you need to do this is just dconf utility (usually called dconf-editor or just dconf).</p>
+
+<h2>Install dconf utility</h2>
+<p>Dconf utility is available on almost all linux distro, including <a class="ul1" href="https://archlinux.pkgs.org/rolling/archlinux-extra-x86_64/dconf-0.40.0-1-x86_64.pkg.tar.zst.html">Archlinux</a>, <a class="ul1" href="https://debian.pkgs.org/11/debian-main-amd64/dconf-cli_0.38.0-2_amd64.deb.html">Debian Bullseye</a>, and also <a class="ul1" href="https://fedora.pkgs.org/35/fedora-x86_64/dconf-0.40.0-5.fc35.x86_64.rpm.html">Fedora 35</a>. If your distribution is not listed here, you can find dconf package <a class="ul1" href="https://pkgs.org/search/?q=dconf">Here</a>.</p>
+
+<h2>Exporting gnome-terminal profile settings</h2>
+<p>First, you need to know your gnome-terminal profile UID, to find out so, run this command <code>dconf list /org/gnome/terminal/legacy/profiles:/</code>. The output will be similar to this</p>
+<img src="/home/samuel/nc/github/website/assets/gnometerm.png" alt="sample output">
+<p>Just copy the very first output to use, it should be the default profile. To actually export your gnome-terminal configuration, run this command. <b>Replace UID with your profile UID!</b></p>
+
+<code>dconf dump /org/gnome/terminal/legacy/profiles:/:b4d7e88f-8807-48a4-86df-1542d3aae192/ > ~/gnome-terminal.dconf</code>
+
+<p>You can put your dconf file to a safe place like cloud storage or other computers.</p>
+
+<h2>Importing your gnome-terminal profile</h2>
+
+<p>After exporting your gnome-terminal configuration, you may want to apply that config to other machine. To do so, we need to know the UID of the other machine. To find the UID on the other machine, refer to instruction above. And to apply the configuration, you need to locate the .dconf file. For ease, you can just place the configuration on your $HOME. After locating your .dconf file, run this command. Make sure the UID and the file name correct!
+
+<code>dconf load /org/gnome/terminal/legacy/profiles:/:b4d7e88f-8807-48a4-86df-1542d3aae192/ < ~/gnome-terminal.dconf</code>.
+The changes should apply immediately and you can use your gnome-terminal with the same config!</p>
+
+<hr>
+Copyright 2022 <a class="ul1" href="https://github.com/samuelnihbos">SamuelNihBos</a>. Some right reserved.

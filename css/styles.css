@@ -150,3 +150,10 @@ dl dd {
   	font-variant-caps: small-caps;
   	text-align: center;
 }
+
+code {
+  background-color: #d3d3d3;
+  color: black;
+  font-family: 'Latin Modern Roman', serif;
+  font-weight: bold;
+}
