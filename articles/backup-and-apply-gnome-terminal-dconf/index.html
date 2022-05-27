@@ -22,11 +22,11 @@ What you need to do this is just dconf utility (usually called dconf-editor or j
 <p>Dconf utility is available on almost all linux distro, including <a class="ul1" href="https://archlinux.pkgs.org/rolling/archlinux-extra-x86_64/dconf-0.40.0-1-x86_64.pkg.tar.zst.html">Archlinux</a>, <a class="ul1" href="https://debian.pkgs.org/11/debian-main-amd64/dconf-cli_0.38.0-2_amd64.deb.html">Debian Bullseye</a>, and also <a class="ul1" href="https://fedora.pkgs.org/35/fedora-x86_64/dconf-0.40.0-5.fc35.x86_64.rpm.html">Fedora 35</a>. If your distribution is not listed here, you can find dconf package <a class="ul1" href="https://pkgs.org/search/?q=dconf">Here</a>.</p>
 
 <h2>Exporting gnome-terminal profile settings</h2>
-<p>First, you need to know your gnome-terminal profile UID, to find out so, run this command <code>dconf list /org/gnome/terminal/legacy/profiles:/</code>. The output will be similar to this</p>
+<p>First, you need to know your gnome-terminal profile UID, to find out so, run this command <pre><code class="language-html">dconf list /org/gnome/terminal/legacy/profiles:/</code></pre>. The output will be similar to this</p>
 <img src="/assets/gnometerm.png" alt="sample output">
 <p>Just copy the very first output to use, it should be the default profile. To actually export your gnome-terminal configuration, run this command. <b>Replace UID with your profile UID!</b></p>
 
-<pre><code class="bash">dconf dump /org/gnome/terminal/legacy/profiles:/:b4d7e88f-8807-48a4-86df-1542d3aae192/ > ~/gnome-terminal.dconf</code></pre>
+<pre><code class="language-bash">dconf dump /org/gnome/terminal/legacy/profiles:/:b4d7e88f-8807-48a4-86df-1542d3aae192/ > ~/gnome-terminal.dconf</code></pre>
 
 <p>You can put your dconf file to a safe place like cloud storage or other computers.</p>
 
@@ -34,7 +34,7 @@ What you need to do this is just dconf utility (usually called dconf-editor or j
 
 <p>After exporting your gnome-terminal configuration, you may want to apply that config to other machine. To do so, we need to know the UID of the other machine. To find the UID on the other machine, refer to instruction above. And to apply the configuration, you need to locate the .dconf file. For ease, you can just place the configuration on your $HOME. After locating your .dconf file, run this command. Make sure the UID and the file name correct!
 
-<pre><code class="bash">dconf load /org/gnome/terminal/legacy/profiles:/:b4d7e88f-8807-48a4-86df-1542d3aae192/ < ~/gnome-terminal.dconf</code></pre>.
+<pre><code class="language-bash">dconf load /org/gnome/terminal/legacy/profiles:/:b4d7e88f-8807-48a4-86df-1542d3aae192/ < ~/gnome-terminal.dconf</code></pre>.
 The changes should apply immediately and you can use your gnome-terminal with the same config!</p>
 
 <script src="/js/highlight.min.js"></script>
